@@ -1,9 +1,15 @@
+(require 'package)
+(add-to-list 'package-archives
+              '("melpa" . "https://melpa.org/packages/")
+              t)
+(package-initialize)
+
 ;; 显示行号
 (global-linum-mode 1)
 ;; 关闭启动帮助画面
 (setq inhibit-splash-screen 1)
 ;; 显示空白字符
-;(global-whitespace-mode 1)
+(global-whitespace-mode 1)
 ;; 启动窗口大小
 (setq default-frame-alist
 '((height . 45) (width . 85)))
@@ -23,7 +29,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode company)))
+ '(package-selected-packages '(go-mode racket-mode markdown-mode company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,3 +41,5 @@
   (interactive)
   (browse-url "http://localhost:6419"))
 (global-set-key (kbd "C-c m") 'open-markdown-preview)
+
+(add-hook 'go-mode-hook (lambda() (setq tab-width 4)))
